@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoverCamController", "RoverCamController\RoverCamController.csproj", "{DA92153E-C0DB-436B-8906-C8F12A18CE57}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA92153E-C0DB-436B-8906-C8F12A18CE57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA92153E-C0DB-436B-8906-C8F12A18CE57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA92153E-C0DB-436B-8906-C8F12A18CE57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA92153E-C0DB-436B-8906-C8F12A18CE57}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BAFB301C-D918-4995-90F6-A8C7B60485D4}
+	EndGlobalSection
+EndGlobal
