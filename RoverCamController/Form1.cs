@@ -14,87 +14,12 @@ namespace RoverCamController
 {
     public partial class Form1 : Form
     {
-        public static string chc = "chc";
-        public static int port = 8082;
-        public static string address = "192.168.0.61";
-        public static IPEndPoint ipPoint = new IPEndPoint(IPAddress.Parse(address), port);
-        public static Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-        public static bool conn_stat = false;
+        ConnectionHandler conn = new ConnectionHandler();
 
-        public void StatusText (string text)
+        public void Status (string text)
         {
-            textBox1.Clear();
-            textBox1.Paste(text);
-        }
-
-        public void send_data(string str)
-        {
-            try
-            {
-                byte[] data = Encoding.ASCII.GetBytes(str);
-                try
-                {
-                    socket.Send(data);
-                }
-                catch (System.ObjectDisposedException)
-                {
-                    StatusText("Server is disconnected. Try to connect again");
-                    conn_stat = false;
-                }
-            }
-            catch (System.Net.Sockets.SocketException)
-            {
-                StatusText("Server was disconnected\r\n");
-                conn_stat = false;
-            }
-        }
-
-        public string recv_data()
-        {
-            try
-            {
-                byte[] data = new byte[1024];
-                StringBuilder builder = new StringBuilder();
-                int bytes = 0;
-
-                do
-                {
-                    bytes = socket.Receive(data, data.Length, 0);
-                    builder.Append(Encoding.ASCII.GetString(data, 0, bytes));
-                }
-                while (socket.Available > 0);
-                return builder.ToString();
-            }
-            catch (System.ObjectDisposedException)
-            {
-                StatusText("Server is disconnected. Try to connect again");
-                conn_stat = false;
-                return "";
-            }
-        }
-
-        public void connect()
-        {
-            try
-            {
-                socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                socket.Connect(ipPoint);
-                StatusText("Connected to " + address + ":" + port + "\r\n");
-                conn_stat = true;
-            }
-            catch (System.Net.Sockets.SocketException)
-            {
-                StatusText("Server not found\r\n");
-                conn_stat = false;
-            }
-        }
-
-        public void disconnect()
-        {
-            send_data("disconnect");
-            socket.Close();
-            conn_stat = false;
-            StatusText("Disconnected by demand\r\n");
+            StatusBox.Clear();
+            StatusBox.Paste(text);
         }
 
         public Form1()
@@ -104,89 +29,80 @@ namespace RoverCamController
 
         private void button1_Click(object sender, EventArgs e)
         {
-            send_data("up");
+            conn.Send("up");
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            send_data("left");
+            conn.Send("left");
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            send_data("right");
+            conn.Send("right");
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            send_data("down");
+            conn.Send("down");
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            send_data("center");
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
+            conn.Send("center");
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            if (conn_stat == false)
+            bool state = conn.State();
+            if (state == false)
             {
-                connect();
+                conn.Connect();
             }
             else
             {
-                disconnect();
+                conn.Disconnect();
             }
         }
 
         private void Up2_Click(object sender, EventArgs e)
         {
-            send_data("up2");
+            conn.Send("up2");
         }
 
         private void Up3_Click(object sender, EventArgs e)
         {
-            send_data("up3");
+            conn.Send("up3");
         }
 
         private void Left2_Click(object sender, EventArgs e)
         {
-            send_data("right2");
+            conn.Send("right2");
         }
 
         private void Left3_Click(object sender, EventArgs e)
         {
-            send_data("right3");
+            conn.Send("right3");
         }
 
         private void Right2_Click(object sender, EventArgs e)
         {
-            send_data("left2");
+            conn.Send("left2");
         }
 
         private void Right3_Click(object sender, EventArgs e)
         {
-            send_data("left3");
+            conn.Send("left3");
         }
 
         private void Down2_Click(object sender, EventArgs e)
         {
-            send_data("down2");
+            conn.Send("down2");
         }
 
         private void Down3_Click(object sender, EventArgs e)
         {
-            send_data("down3");
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+            conn.Send("down3");
         }
     }
 }

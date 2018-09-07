@@ -34,9 +34,9 @@
             this.Right1 = new System.Windows.Forms.Button();
             this.Down1 = new System.Windows.Forms.Button();
             this.Left1 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button6 = new System.Windows.Forms.Button();
+            this.Center = new System.Windows.Forms.Button();
+            this.StatusBox = new System.Windows.Forms.TextBox();
+            this.Conn_disconn = new System.Windows.Forms.Button();
             this.Up2 = new System.Windows.Forms.Button();
             this.Up3 = new System.Windows.Forms.Button();
             this.Down2 = new System.Windows.Forms.Button();
@@ -88,34 +88,33 @@
             this.Left1.UseVisualStyleBackColor = true;
             this.Left1.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button5
+            // Center
             // 
-            this.button5.Location = new System.Drawing.Point(160, 127);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(70, 70);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "C";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.Center.Location = new System.Drawing.Point(160, 127);
+            this.Center.Name = "Center";
+            this.Center.Size = new System.Drawing.Size(70, 70);
+            this.Center.TabIndex = 4;
+            this.Center.Text = "C";
+            this.Center.UseVisualStyleBackColor = true;
+            this.Center.Click += new System.EventHandler(this.button5_Click);
             // 
-            // textBox1
+            // StatusBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(49, 328);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(201, 20);
-            this.textBox1.TabIndex = 5;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.StatusBox.Location = new System.Drawing.Point(49, 328);
+            this.StatusBox.Name = "StatusBox";
+            this.StatusBox.ReadOnly = true;
+            this.StatusBox.Size = new System.Drawing.Size(201, 20);
+            this.StatusBox.TabIndex = 5;
             // 
-            // button6
+            // Conn_disconn
             // 
-            this.button6.Location = new System.Drawing.Point(256, 326);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(116, 23);
-            this.button6.TabIndex = 6;
-            this.button6.Text = "Connect/Disconnect";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.Conn_disconn.Location = new System.Drawing.Point(256, 326);
+            this.Conn_disconn.Name = "Conn_disconn";
+            this.Conn_disconn.Size = new System.Drawing.Size(116, 23);
+            this.Conn_disconn.TabIndex = 6;
+            this.Conn_disconn.Text = "Connect/Disconnect";
+            this.Conn_disconn.UseVisualStyleBackColor = true;
+            this.Conn_disconn.Click += new System.EventHandler(this.button6_Click);
             // 
             // Up2
             // 
@@ -205,7 +204,6 @@
             this.label1.Size = new System.Drawing.Size(37, 13);
             this.label1.TabIndex = 15;
             this.label1.Text = "Status";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // Form1
             // 
@@ -221,13 +219,14 @@
             this.Controls.Add(this.Down2);
             this.Controls.Add(this.Up3);
             this.Controls.Add(this.Up2);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.Conn_disconn);
+            this.Controls.Add(this.StatusBox);
+            this.Controls.Add(this.Center);
             this.Controls.Add(this.Left1);
             this.Controls.Add(this.Down1);
             this.Controls.Add(this.Right1);
             this.Controls.Add(this.Up1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.RightToLeftLayout = true;
@@ -244,9 +243,9 @@
         private System.Windows.Forms.Button Right1;
         private System.Windows.Forms.Button Down1;
         private System.Windows.Forms.Button Left1;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button Center;
+        private System.Windows.Forms.TextBox StatusBox;
+        private System.Windows.Forms.Button Conn_disconn;
         private System.Windows.Forms.Button Up2;
         private System.Windows.Forms.Button Up3;
         private System.Windows.Forms.Button Down2;
