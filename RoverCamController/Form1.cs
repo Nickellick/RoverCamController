@@ -105,5 +105,11 @@ namespace RoverCamController
             Status(conn.Send("save_pos"));
             Status(conn.Recieve());
         }
+
+        private void Load_position_Click(object sender, EventArgs e)
+        {
+            Status(conn.Send("load_pos"));
+            Status(conn.Recieve());
+        }
     }
 }

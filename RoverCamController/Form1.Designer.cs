@@ -46,6 +46,7 @@
             this.Right2 = new System.Windows.Forms.Button();
             this.Right3 = new System.Windows.Forms.Button();
             this.Save_position = new System.Windows.Forms.Button();
+            this.Load_position = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Up1
@@ -198,19 +199,30 @@
             // 
             // Save_position
             // 
-            this.Save_position.Location = new System.Drawing.Point(256, 296);
+            this.Save_position.Location = new System.Drawing.Point(256, 297);
             this.Save_position.Name = "Save_position";
-            this.Save_position.Size = new System.Drawing.Size(116, 23);
+            this.Save_position.Size = new System.Drawing.Size(54, 23);
             this.Save_position.TabIndex = 15;
-            this.Save_position.Text = "Save position";
+            this.Save_position.Text = "Save";
             this.Save_position.UseVisualStyleBackColor = true;
             this.Save_position.Click += new System.EventHandler(this.Save_position_Click);
+            // 
+            // Load_position
+            // 
+            this.Load_position.Location = new System.Drawing.Point(316, 297);
+            this.Load_position.Name = "Load_position";
+            this.Load_position.Size = new System.Drawing.Size(56, 23);
+            this.Load_position.TabIndex = 16;
+            this.Load_position.Text = "Load";
+            this.Load_position.UseVisualStyleBackColor = true;
+            this.Load_position.Click += new System.EventHandler(this.Load_position_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 361);
+            this.Controls.Add(this.Load_position);
             this.Controls.Add(this.Save_position);
             this.Controls.Add(this.Right3);
             this.Controls.Add(this.Right2);
@@ -256,6 +268,7 @@
         private System.Windows.Forms.Button Right2;
         private System.Windows.Forms.Button Right3;
         private System.Windows.Forms.Button Save_position;
+        private System.Windows.Forms.Button Load_position;
     }
 }
 
