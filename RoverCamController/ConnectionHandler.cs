@@ -90,7 +90,7 @@ namespace RoverCamController
             catch (System.Net.Sockets.SocketException)
             {
                 conn_state = false;
-                return "IP " + ip_address + ":" + Convert.ToString(port) + " not found";
+                return "Rover100101@" + ip_address + ":" + Convert.ToString(port) + " not found";
             }
         }
 
