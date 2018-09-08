@@ -23,7 +23,7 @@ namespace RoverCamController
             port = 8082;
         }
 
-        public void Send(string message)
+        public string Send(string message)
         {
             try
             {
@@ -31,68 +31,76 @@ namespace RoverCamController
                 try
                 {
                     socket.Send(data);
-                    form.Status("Command sent");
+                    return "Command sent";
                 }
                 catch(System.ObjectDisposedException)
                 {
                     conn_state = false;
-                    form.Status("Server disconnected. Try to connect again");
+                    return "Server disconnected. Try to connect again";
                 }
             }
             catch(System.Net.Sockets.SocketException)
             {
                 conn_state = false;
-                form.Status("Socket is closed. Try again");
+                return "Socket is closed. Try to reconnect";
             }
         }
 
 
-        public void Recieve()
+        public string Recieve()
         {
             try
             {
-                byte[] data = new byte[1024];
-                StringBuilder builder = new StringBuilder();
-                int bytes = 0;
-                do
+                try
                 {
-                    bytes = socket.Receive(data, data.Length, 0);
-                    builder.Append(Encoding.ASCII.GetString(data, 0, bytes));
+                    byte[] data = new byte[1024];
+                    StringBuilder builder = new StringBuilder();
+                    int bytes = 0;
+                    do
+                    {
+                        bytes = socket.Receive(data, data.Length, 0);
+                        builder.Append(Encoding.ASCII.GetString(data, 0, bytes));
+                    }
+                    while (socket.Available > 0);
+                    return "Recieved: " + builder.ToString();
                 }
-                while (socket.Available > 0);
-                form.Status("Recieved: " + builder.ToString());
+                catch (System.ObjectDisposedException)
+                {
+                    conn_state = false;
+                    return "Server disconnected. Try to connect again";
+                }
             }
-            catch (System.ObjectDisposedException)
+            catch (System.Net.Sockets.SocketException)
             {
                 conn_state = false;
-                form.Status("Server disconnected. Try to connect again");
+                return "Socket is closed. Try to reconnect";
             }
         }
 
 
-        public void Connect()
+        public string Connect()
         {
             try
             {
                 socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                 socket.Connect(ip_point);
                 conn_state = true;
-                form.Status("Connected to " + ip_address + ":" + port);
+                return "Connected to " + ip_address + ":" + port;
             }
             catch (System.Net.Sockets.SocketException)
             {
                 conn_state = false;
-                form.Status("Server with IP " + ip_address + "not found");
+                return "IP " + ip_address + ":" + Convert.ToString(port) + " not found";
             }
         }
 
 
-        public void Disconnect()
+        public string Disconnect()
         {
             Send("disconnect");
             socket.Close();
             conn_state = false;
-            form.Status("Disconnected by demand");
+            return "Disconnected by demand";
         }
 
 

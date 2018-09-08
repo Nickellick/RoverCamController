@@ -45,7 +45,7 @@
             this.Left3 = new System.Windows.Forms.Button();
             this.Right2 = new System.Windows.Forms.Button();
             this.Right3 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.Save_position = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Up1
@@ -100,10 +100,10 @@
             // 
             // StatusBox
             // 
-            this.StatusBox.Location = new System.Drawing.Point(49, 328);
+            this.StatusBox.Location = new System.Drawing.Point(12, 328);
             this.StatusBox.Name = "StatusBox";
             this.StatusBox.ReadOnly = true;
-            this.StatusBox.Size = new System.Drawing.Size(201, 20);
+            this.StatusBox.Size = new System.Drawing.Size(238, 20);
             this.StatusBox.TabIndex = 5;
             // 
             // Conn_disconn
@@ -196,21 +196,22 @@
             this.Right3.UseVisualStyleBackColor = true;
             this.Right3.Click += new System.EventHandler(this.Right3_Click);
             // 
-            // label1
+            // Save_position
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 331);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 13);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Status";
+            this.Save_position.Location = new System.Drawing.Point(256, 296);
+            this.Save_position.Name = "Save_position";
+            this.Save_position.Size = new System.Drawing.Size(116, 23);
+            this.Save_position.TabIndex = 15;
+            this.Save_position.Text = "Save position";
+            this.Save_position.UseVisualStyleBackColor = true;
+            this.Save_position.Click += new System.EventHandler(this.Save_position_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 361);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Save_position);
             this.Controls.Add(this.Right3);
             this.Controls.Add(this.Right2);
             this.Controls.Add(this.Left3);
@@ -254,7 +255,7 @@
         private System.Windows.Forms.Button Left3;
         private System.Windows.Forms.Button Right2;
         private System.Windows.Forms.Button Right3;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button Save_position;
     }
 }
 

@@ -25,31 +25,32 @@ namespace RoverCamController
         public Form1()
         {
             InitializeComponent();
+            Status("Push \"Connect\" to begin");
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            conn.Send("up");
+            Status(conn.Send("up"));
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            conn.Send("left");
+            Status(conn.Send("left"));
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            conn.Send("right");
+            Status(conn.Send("right"));
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            conn.Send("down");
+            Status(conn.Send("down"));
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            conn.Send("center");
+            Status(conn.Send("center"));
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -57,52 +58,60 @@ namespace RoverCamController
             bool state = conn.State();
             if (state == false)
             {
-                conn.Connect();
+                Status("Connecting...");
+                Status(conn.Connect());
             }
             else
             {
-                conn.Disconnect();
+                Status("Disconnecting...");
+                Status(conn.Disconnect());
             }
         }
 
         private void Up2_Click(object sender, EventArgs e)
         {
-            conn.Send("up2");
+            Status(conn.Send("up2"));
         }
 
         private void Up3_Click(object sender, EventArgs e)
         {
-            conn.Send("up3");
+            Status(conn.Send("up3"));
         }
 
         private void Left2_Click(object sender, EventArgs e)
         {
-            conn.Send("right2");
+            Status(conn.Send("right2"));
         }
 
         private void Left3_Click(object sender, EventArgs e)
         {
-            conn.Send("right3");
+            Status(conn.Send("right3"));
         }
 
         private void Right2_Click(object sender, EventArgs e)
         {
-            conn.Send("left2");
+            Status(conn.Send("left2"));
         }
 
         private void Right3_Click(object sender, EventArgs e)
         {
-            conn.Send("left3");
+            Status(conn.Send("left3"));
         }
 
         private void Down2_Click(object sender, EventArgs e)
         {
-            conn.Send("down2");
+            Status(conn.Send("down2"));
         }
 
         private void Down3_Click(object sender, EventArgs e)
         {
-            conn.Send("down3");
+            Status(conn.Send("down3"));
+        }
+
+        private void Save_position_Click(object sender, EventArgs e)
+        {
+            Status(conn.Send("save_pos"));
+            Status(conn.Recieve());
         }
     }
 }
