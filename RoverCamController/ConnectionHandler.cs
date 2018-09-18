@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Net.Sockets;
 
+
+//TODO: Add normal "Decode" method
+//TODO: Comments
 namespace RoverCamController
 {
     class ConnectionHandler
@@ -27,7 +30,7 @@ namespace RoverCamController
         {
             try
             {
-                byte[] data = Encoding.ASCII.GetBytes(message);
+                byte[] data = Encode(message);
                 try
                 {
                     socket.Send(data);
@@ -107,6 +110,12 @@ namespace RoverCamController
         public bool State()
         {
             return conn_state;
+        }
+
+        public byte[] Encode(string data)
+        {
+            byte[] encoded_data = Encoding.ASCII.GetBytes(data);
+            return encoded_data;
         }
     }
 }
